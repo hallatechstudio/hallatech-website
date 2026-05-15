@@ -3,14 +3,14 @@ import { ArrowUpRight, Compass, PenTool, Rocket, LineChart, Quote } from "lucide
 import { SiteShell } from "@/components/site/SiteShell";
 
 
-import heroDevices from "@/assets/fans.png";
+import heroDevices from "@/assets/artists.png";
 import metaLogo from "@/assets/meta.png";
 import amazonLogo from "@/assets/Amazon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HallaTech — We build & grow tech products" },
+      { title: "HallaTech - We build & grow tech products" },
       {
         name: "description",
         content:
@@ -29,7 +29,6 @@ export const Route = createFileRoute("/")({
 const products = [
   { name: "TuneNova", tag: "Music & Entertainment", blurb: "Music Discovery Reimagined Grow your fanbase across Spotify, Apple Music, and YouTube.", url: "https://www.tunenova.com/" },
   { name: "Tracla", tag: "Honest Feedback", blurb: "Tracla is a simple platform that lets businesses collect genuine customer ratings, complaints, tips, and honest reviews using just one QR code.", url: "https://www.tracla.com/" },
-  
   { name: "Aldora", tag: "Gaming Analytics", blurb: "ALDORA bridges the interpretation gap between raw metrics and actionable intelligence in gaming’s $250 billion ecosystem.", url: "https://www.aldora.com/" },
   { name: "Cashwyre", tag: "Fintech", blurb: "Send Money, Simplified Simplifying global payments for individuals and businesses. Cashwyre uses Bitcoin and crypto rails to make cross-border transfers faster, easier, and more affordable than traditional methods.", url: "https://cashwyre.com/" },
   { name: "Sharp Pocket", tag: "Fintech", blurb: "Smart Spending Solutions Pay bills, buy airtime and data, settle electricity, and send or withdraw money fast, simple, and secure.", url: "https://www.mysharppocket.com/" },
@@ -41,7 +40,14 @@ function Index() {
     <SiteShell>
       {/* HERO */}
       <section className="relative">
+        {/* Background overlay image */}
         <div className="absolute inset-0 -z-10">
+          <img
+            src={heroDevices}
+            alt="Background overlay"
+            className="w-full h-full object-cover object-center opacity-20"
+            style={{ pointerEvents: 'none', userSelect: 'none' }}
+          />
           <div className="absolute inset-x-0 top-0 h-[600px] bg-[radial-gradient(ellipse_at_top,_var(--accent)_0%,_transparent_55%)] opacity-20" />
         </div>
         <div className="mx-auto max-w-7xl px-6 pt-16 pb-24 md:pt-24">
@@ -50,11 +56,11 @@ function Index() {
               <h1 className="font-display text-[3.25rem] leading-[1.02] md:text-[5.5rem] md:leading-[0.98] tracking-tight text-foreground">
                 We build & grow
                 <br />
-                <span className="italic text-accent">tech products</span> that scale globally.
+                <span className="italic text-accent">websites and apps</span> for global companies.
               </h1>
-              <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground">
-              Most tech products never reach their full potential. We fix that by building exceptional products and scaling them with powerful user adoption and growth strategies
-              </p>
+              {/* <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground">
+              We help build and grow tech products for global companies 
+              </p> */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   to="/contact"
@@ -64,7 +70,7 @@ function Index() {
                   <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
-              <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
+              {/* <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
                 {[
                   { k: "20+", v: "Products built" },
                   { k: "1M+", v: "Users reached" },
@@ -75,9 +81,9 @@ function Index() {
                     <div className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.v}</div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
-            <div className="lg:col-span-5 flex items-start">
+            {/* <div className="lg:col-span-5 flex items-start">
               <img
                 src={heroDevices}
                 alt="Fan engagement preview"
@@ -86,7 +92,7 @@ function Index() {
                 className="w-full h-auto"
                 style={{ margin: 0, padding: 0, boxShadow: 'none', borderRadius: 0 }}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -106,6 +112,32 @@ function Index() {
                 <img src={amazonLogo} alt="Amazon" className="object-contain h-16 w-28" />
               </span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS SECTION */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="rounded-2xl bg-card/60 p-8 text-center shadow-sm border border-border">
+            <div className="font-display text-5xl md:text-6xl text-foreground">20+</div>
+            <div className="mt-2 text-xl font-semibold text-foreground">Products Built</div>
+            <div className="mt-1 text-muted-foreground">Innovative solutions delivered</div>
+          </div>
+          <div className="rounded-2xl bg-card/60 p-8 text-center shadow-sm border border-border">
+            <div className="font-display text-5xl md:text-6xl text-foreground">5+</div>
+            <div className="mt-2 text-xl font-semibold text-foreground">Industries Served</div>
+            <div className="mt-1 text-muted-foreground">Diverse market expertise</div>
+          </div>
+          <div className="rounded-2xl bg-card/60 p-8 text-center shadow-sm border border-border">
+            <div className="font-display text-5xl md:text-6xl text-foreground">1M+</div>
+            <div className="mt-2 text-xl font-semibold text-foreground">Users Reached</div>
+            <div className="mt-1 text-muted-foreground">Global impact achieved</div>
+          </div>
+          <div className="rounded-2xl bg-card/60 p-8 text-center shadow-sm border border-border">
+            <div className="font-display text-5xl md:text-6xl text-foreground">85+</div>
+            <div className="mt-2 text-xl font-semibold text-foreground">Countries</div>
+            <div className="mt-1 text-muted-foreground">Worldwide presence</div>
           </div>
         </div>
       </section>
