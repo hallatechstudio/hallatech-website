@@ -11,7 +11,7 @@ export function Footer() {
               <span className="font-display text-2xl">HallaTech</span>
             </div>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              A venture studio helping founders build sleek tech products and grow them into companies that matter.
+              We build sleek tech products and help founders grow them into companies that matter.
             </p>
           </div>
           <div>

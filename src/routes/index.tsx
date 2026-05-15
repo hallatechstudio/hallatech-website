@@ -1,7 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Compass, PenTool, Rocket, LineChart, Quote } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
-import heroDevices from "@/assets/hero-devices.png";
+
+
+import heroDevices from "@/assets/fans.png";
+import metaLogo from "@/assets/meta.png";
+import amazonLogo from "@/assets/Amazon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,13 +27,13 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "Soundhalla", tag: "Music & Entertainment", blurb: "Amplify your sound — data-driven artist growth.", url: "https://soundhalla.com/" },
-  { name: "Cashwyre", tag: "Fintech", blurb: "Send money simply across borders, on crypto rails.", url: "https://cashwyre.com/" },
-  { name: "Aldora", tag: "Gaming", blurb: "Turning raw game metrics into clear intelligence.", url: "https://www.aldora.com/" },
-  { name: "TuneNova", tag: "Music & Entertainment", blurb: "Grow your fanbase across Spotify, Apple & YouTube.", url: "https://www.tunenova.com/" },
-  { name: "Sharp Pocket", tag: "Fintech", blurb: "Pay bills, buy airtime and data — fast and secure.", url: "https://www.mysharppocket.com/" },
-  { name: "Teilorr", tag: "Fashion Tech", blurb: "Streamline your tailoring business with intuitive digital tools.", url: "https://www.teilorr.com/" },
-  { name: "ShopNSure", tag: "Fintech", blurb: "Secure escrow that holds buyer funds until delivery.", url: "https://www.shopnsure.com/" },
+  { name: "TuneNova", tag: "Music & Entertainment", blurb: "Music Discovery Reimagined Grow your fanbase across Spotify, Apple Music, and YouTube.", url: "https://www.tunenova.com/" },
+  { name: "Tracla", tag: "Honest Feedback", blurb: "Tracla is a simple platform that lets businesses collect genuine customer ratings, complaints, tips, and honest reviews using just one QR code.", url: "https://www.tracla.com/" },
+  
+  { name: "Aldora", tag: "Gaming Analytics", blurb: "ALDORA bridges the interpretation gap between raw metrics and actionable intelligence in gaming’s $250 billion ecosystem.", url: "https://www.aldora.com/" },
+  { name: "Cashwyre", tag: "Fintech", blurb: "Send Money, Simplified Simplifying global payments for individuals and businesses. Cashwyre uses Bitcoin and crypto rails to make cross-border transfers faster, easier, and more affordable than traditional methods.", url: "https://cashwyre.com/" },
+  { name: "Sharp Pocket", tag: "Fintech", blurb: "Smart Spending Solutions Pay bills, buy airtime and data, settle electricity, and send or withdraw money fast, simple, and secure.", url: "https://www.mysharppocket.com/" },
+  { name: "Teilorr", tag: "Fashion tech", blurb: "Streamline Your Tailoring Business Teilor helps professional tailors organize client information, track measurements, and grow their business with intuitive digital tools designed specifically for the tailoring industry", url: "https://www.teilorr.com/" },
 ];
 
 function Index() {
@@ -49,21 +53,15 @@ function Index() {
                 <span className="italic text-accent">tech products</span> that scale globally.
               </h1>
               <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground">
-                Most tech never reaches its potential. We pair sharp product development with growth strategy — so the right people actually use what you ship.
+              Most tech products never reach their full potential. We fix that by building exceptional products and scaling them with powerful user adoption and growth strategies
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
-                  to="/work"
+                  to="/contact"
                   className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90"
                 >
-                  Explore our work
+                  Contact us
                   <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-foreground transition hover:bg-secondary"
-                >
-                  What we do
                 </Link>
               </div>
               <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
@@ -79,41 +77,35 @@ function Index() {
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-5">
-              <div className="relative">
-                <div className="absolute -inset-6 rounded-[3rem] bg-accent/15 blur-3xl" />
-                <img
-                  src={heroDevices}
-                  alt="HallaTech product previews"
-                  width={1280}
-                  height={1280}
-                  className="relative w-full h-auto drop-shadow-2xl"
-                />
-              </div>
+            <div className="lg:col-span-5 flex items-start">
+              <img
+                src={heroDevices}
+                alt="Fan engagement preview"
+                width={1280}
+                height={1280}
+                className="w-full h-auto"
+                style={{ margin: 0, padding: 0, boxShadow: 'none', borderRadius: 0 }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* MARQUEE / TRUST */}
+
+      {/* LOGOS / TRUST (Static Centered) */}
       <section className="border-y border-border overflow-hidden">
-        <div className="relative mx-auto max-w-7xl py-8">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-          <div className="flex w-max animate-marquee gap-16 pr-16">
-            {[...products, ...products, ...products].map((p, i) => (
-              <div
-                key={`${p.name}-${i}`}
-                className="flex items-center gap-3 shrink-0 opacity-70 hover:opacity-100 transition"
-              >
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-accent/15 text-accent font-display text-sm">
-                  {p.name.charAt(0)}
-                </span>
-                <span className="font-display text-lg text-foreground/80 whitespace-nowrap">
-                  {p.name}
-                </span>
-              </div>
-            ))}
+        <div className="relative mx-auto max-w-7xl py-8 flex justify-center">
+          <div className="flex gap-16">
+            <div className="flex items-center">
+              <span className="inline-flex h-20 w-32 items-center justify-center rounded-md bg-white">
+                <img src={metaLogo} alt="Meta" className="object-contain h-16 w-28" />
+              </span>
+            </div>
+            <div className="flex items-center">
+              <span className="inline-flex h-20 w-32 items-center justify-center rounded-md bg-white">
+                <img src={amazonLogo} alt="Amazon" className="object-contain h-16 w-28" />
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -132,25 +124,23 @@ function Index() {
           </Link>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((p, i) => (
-            <a
-              key={p.name}
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-accent/40"
-            >
-              <div className="h-32 rounded-2xl bg-gradient-to-br from-secondary to-card flex items-center justify-center mb-5 overflow-hidden">
-                <span className="font-display text-4xl text-accent/70">{String(i + 1).padStart(2, "0")}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{p.tag}</span>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:text-accent" />
-              </div>
-              <h3 className="mt-3 font-display text-2xl">{p.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.blurb}</p>
-            </a>
-          ))}
+{products.map((p, i) => (
+               <a
+                 key={p.name}
+                 href={p.url}
+                 target="_blank"
+                 rel="noreferrer"
+                 className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-accent/40"
+               >
+                {/* Removed number/visual section */}
+                 <div className="flex items-center justify-between">
+                   <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{p.tag}</span>
+                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:text-accent" />
+                 </div>
+                 <h3 className="mt-3 font-display text-2xl">{p.name}</h3>
+                 <p className="mt-2 text-sm text-muted-foreground">{p.blurb}</p>
+               </a>
+             ))}
         </div>
       </section>
 
@@ -238,9 +228,9 @@ function Index() {
           </div>
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { quote: "Halla didn't just build our app — they helped us find our first 10,000 users. The most embedded partner we've ever had.", who: "Daniel O.", role: "Founder, Soundhalla" },
-              { quote: "Sharp team, sharper execution. They shipped our MVP in eight weeks and it actually felt like a v3.", who: "Ifeoma N.", role: "CEO, Tracla" },
-              { quote: "Design, engineering, growth — all under one roof, and all genuinely good. Rare combo.", who: "Tunde A.", role: "Product Lead, Cashwyre" },
+              { quote: "Halla built a fast and reliable app that powers our transactions perfectly. They didn’t just deliver the product, they helped us grow to thousands of active users.", who: "Sunday O.", role: "Founder, Cashwyre" },
+              { quote: "They delivered a seamless transaction experience and helped us scale smoothly. Extremely reliable team.", who: "David.", role: "CEO, Sharp pocket" },
+              { quote: "Design, engineering, growth, all under one roof, and all genuinely good. Rare combo.", who: "Tunde A.", role: "Product Lead, Aldora" },
             ].map((t) => (
               <figure key={t.who} className="flex flex-col">
                 <blockquote className="font-display text-2xl leading-snug text-foreground">
